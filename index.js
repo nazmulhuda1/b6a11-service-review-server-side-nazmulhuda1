@@ -48,11 +48,8 @@ app.post('/services', async (req, res) => {
             error: error.message,
         });
     }
-
 })
 
-
-// product list show dashbord display;
 app.get('/services', async (req, res) => {
     try {
         const query = {};
@@ -71,8 +68,7 @@ app.get('/services', async (req, res) => {
         });
     }
 })
-// id face
-// services client site a product show
+
 app.get("/services/:id", async (req, res) => {
     try {
         const { id } = req.params;
@@ -89,8 +85,6 @@ app.get("/services/:id", async (req, res) => {
     }
 });
 
-
-//reviews POST Method diye data create korte hoi
 app.post('/reviews', async (req, res) => {
     try {
         const insertCreateProduct = req.body;
@@ -113,7 +107,6 @@ app.post('/reviews', async (req, res) => {
             error: error.message,
         });
     }
-
 })
 
 app.get('/reviews', async (req, res) => {
