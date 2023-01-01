@@ -9,13 +9,10 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-
 // server connection database link
 const uri = `mongodb+srv://${process.env.PRODUCT_DB_NAME}:${process.env.DB_PASSWORD}@cluster0.exe7q4w.mongodb.net/?retryWrites=true&w=majority`;
-// server connection client site link
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-// ===========
 async function run() {
     try {
         await client.connect();
@@ -25,15 +22,10 @@ async function run() {
     }
 }
 run().catch(err => console.error(err))
-
-
-
-
-// create database collection
+// =======
 const servicesCollection = client.db('productsCrud').collection('services');
 const reviewCollection = client.db('productsCrud').collection('reviews');
 
-// POST Method diye data create korte hoi
 app.post('/services', async (req, res) => {
     try {
         const insertCreateProduct = req.body;
