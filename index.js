@@ -145,13 +145,11 @@ app.get("/reviews/:id", async (req, res) => {
         });
     }
 });
-// step 2  
+
 app.patch("/reviews/:id", async (req, res) => {
     const { id } = req.params;
-
     try {
         const result = await reviewCollection.updateOne({ _id: ObjectId(id) }, { $set: req.body });
-
         if (result.matchedCount) {
             res.send({
                 success: true,
@@ -170,7 +168,6 @@ app.patch("/reviews/:id", async (req, res) => {
         });
     }
 });
-
 
 // =====
 app.delete("/reviews/:id", async (req, res) => {
@@ -200,13 +197,9 @@ app.delete("/reviews/:id", async (req, res) => {
     }
 });
 
-
-// =========== Endpoint end ===================
-
-
 //-------=======---------
 app.get('/', (req, res) => {
-    res.send('product card server is working')
+    res.send('travel site is working')
 })
 app.listen(port, () => {
     console.log(`server site is running on ${port}`)
