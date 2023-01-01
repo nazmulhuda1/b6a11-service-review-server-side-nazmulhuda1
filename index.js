@@ -202,5 +202,5 @@ app.get('/', (req, res) => {
     res.send('travel site is working')
 })
 app.listen(port, () => {
-    console.log(`server site is running on ${port}`)
+    console.log(`travel server site is running on ${port}`)
 })
